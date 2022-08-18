@@ -1,0 +1,13 @@
+<po-page-default>
+  <po-breadcrumb [p-items]="breadcrumb">
+  </po-breadcrumb>
+  <div class="po-font-text-bold">Seus Clientes</div>
+  <po-divider></po-divider>
+
+  <div class="po-row">
+    <po-button class="po-md-3 po-sm-4" p-label="Adicionar Cliente" (p-click)="addCliente()"> </po-button>
+  </div>
+  <po-divider></po-divider>
+  <po-table #poTable [p-columns]="columns" [p-items]="clientes" [p-actions]="actions"></po-table>
+
+</po-page-default>

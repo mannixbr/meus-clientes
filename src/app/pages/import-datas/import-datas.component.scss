@@ -1,0 +1,32 @@
+div {
+  position: relative;
+  // centralize the content
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="file"] {
+  width: 100%;
+  font-size: xx-large;
+  // styling for the file input
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+
+}
+
+label {
+  font-size: large;
+  padding: 20px 10px;
+  width: 200px;
+  background-color: #333;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+}

@@ -1,0 +1,8 @@
+{
+  "name": "meus-clientes",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

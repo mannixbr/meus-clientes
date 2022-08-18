@@ -1,0 +1,11 @@
+<po-page-edit p-title="Criar cliente" [p-breadcrumb]="breadcrumb" (p-save)="save()" (p-cancel)="cancel()"
+  [p-disable-submit]="formEditUser.invalid ? true : false">
+  <form #formEditUser="ngForm">
+    <div class="po-row">
+      <po-input class="po-md-4" name="name" [(ngModel)]="name" p-clean p-label="Nome" p-required> </po-input>
+      <po-input p-mask="(11) 9 9999-9999" class="po-md-4" name="phone" [(ngModel)]="whatsapp" p-clean p-label="Whatsapp"
+        p-required> </po-input>
+
+    </div>
+  </form>
+</po-page-edit>

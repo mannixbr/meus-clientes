@@ -1,0 +1,26 @@
+
+<po-widget
+  class="po-md-12"
+  >
+  <h2 class="po-font-subtitle">Clientes disponiveis</h2>
+  <span class="">Escolha apenas um cliente</span>
+    <po-table
+      [p-single-select]="true"
+      (p-container)="true"
+      [p-height]="400"
+      [p-hide-text-overflow]="true"
+      [p-selectable]="true"
+      [p-sort]="true"
+      [p-striped]="true"
+      [p-columns]="columns"
+      [p-items]="clientes"
+      [p-max-columns]="7"
+      >
+    </po-table>
+
+    <po-divider></po-divider>
+
+    <div class="po-row">
+      <po-button class="po-md-12" p-icon="po-icon-cart" p-label="Confirmar cliente" (p-click)="confirmedClient()"> </po-button>
+    </div>
+</po-widget>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Meus Clientes</string>
+    <string name="title_activity_main">Meus Clientes</string>
+    <string name="package_name">com.dasdas</string>
+    <string name="custom_url_scheme">com.dasdas</string>
+</resources>

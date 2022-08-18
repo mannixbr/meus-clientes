@@ -1,0 +1,57 @@
+<po-page-default>
+  <po-breadcrumb [p-items]="breadcrumb">
+  </po-breadcrumb>
+  <po-stepper #stepper>
+    <po-step p-label="Escolha cliente" [p-can-active-next-step]="verificationClient.bind(this)">
+      <app-stepper></app-stepper>
+    </po-step>
+    <po-step p-label="Escolha os Produtos" [p-can-active-next-step]="verificationProduct.bind(this)">
+      <po-widget class="po-md-12">
+        <div class="po-font-subtitle">Produtos disponiveis</div>
+        <div class="">Escolha os produtos</div>
+        <po-table (p-container)="true" [p-height]="400" [p-hide-text-overflow]="true" [p-selectable]="true"
+          [p-sort]="true" [p-striped]="true" [p-columns]="columnsProdutos" [p-items]="produtosDisponiveis"
+          [p-max-columns]="7">
+        </po-table>
+        <po-divider></po-divider>
+        <div class="po-row">
+          <po-button class="po-md-12" p-icon="po-icon-cart" p-label="Confirmar produtos" (p-click)="confirmedItens()">
+          </po-button>
+        </div>
+      </po-widget>
+    </po-step>
+    <po-step p-label="Confirmar pedido">
+      <div *ngFor="let item of itensCart">
+        <po-widget class="po-md-12" [p-height]="150">
+          <div class="po-row">
+            <div class="po-lg-4">
+            </div>
+            <div class="po-sm-6">
+              <span class="po-font-subtitle">{{item.nome}}</span>
+              <div class="po-row po-mt-1">
+                <p class="po-font-text-bold">Preço: </p>
+                <span> {{item.valor}}</span>
+              </div>
+            </div>
+            <div class="po-sm-6">
+              <po-info p-label="Quantidade" [p-label-size]="7" [p-value]="item.escolha">
+              </po-info>
+            </div>
+            <div class="po-sm-12">
+              <po-button class="po-sm-6" p-label="Diminuir" (p-click)="descreasingQuantity(item)"></po-button>
+              <po-button class="po-sm-6" p-label="Aumentar" (p-click)="acresingQuantity(item)"></po-button>
+            </div>
+          </div>
+        </po-widget>
+      </div>
+      <po-widget class="po-md-12" p-title="Preço do pedido">
+        <div *ngIf="totalProdutos">
+          <p class="po-font-text-large-bold">TOTAL: R$ {{value_total}}</p>
+        </div>
+        <po-button class="po-md-12 po-mt-1" p-icon="po-icon-cart" p-label="Fazer Pedido"
+          (p-click)="calculateTotal()"> </po-button>
+      </po-widget>
+    </po-step>
+  </po-stepper>
+  <router-outlet></router-outlet>
+</po-page-default>

@@ -1,0 +1,15 @@
+<po-page-default>
+  <po-breadcrumb [p-items]="breadcrumb">
+  </po-breadcrumb>
+  <div class="po-font-text-bold">Fechar Conta</div>
+
+  <po-divider></po-divider>
+  <po-table #poTable [p-columns]="columns" [p-actions]="actions" [p-items]="clientes" [p-sort]="true"
+    [p-striped]="true">
+    <ng-template p-table-row-template let-rowItem let-i="rowIndex">
+      <po-table [p-columns]="columnsPedidos" [p-items]="rowItem.pedidos" [p-sort]="true" [p-striped]="true">
+      </po-table>
+    </ng-template>
+  </po-table>
+
+</po-page-default>
