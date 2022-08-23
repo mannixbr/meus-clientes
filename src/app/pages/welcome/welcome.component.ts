@@ -30,9 +30,10 @@ export class WelcomeComponent implements OnInit {
       "id": Math.floor(Date.now() * Math.random()).toString(36),
       "nome": this.e_name
     })
-
+    console.log(this.e_todo);
+    
     this.storage.set('estabelecimento', this.e_todo).then((res) => {
-      this.router.navigate(['/estabelecimentos'])
+      this.router.navigate(['/home'])
     })
   }
 

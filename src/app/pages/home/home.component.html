@@ -5,16 +5,16 @@
 
   <po-page-default [p-title]="nome">
     <div class="po-row">
-      <po-widget class="po-sm-6 po-text-white" (p-click)="navegate('fazer-pedido')" [p-height]="100"
+      <po-widget class="po-sm-6 po-text-white po-mb-2" (p-click)="navegate('fazer-pedido')" [p-height]="100"
         p-title="fazer pedidos"></po-widget>
-      <po-widget class="po-sm-6" (p-click)="closeRequest()" [p-height]="100" p-title="fechar conta">
+      <po-widget class="po-sm-6 po-mb-2" (p-click)="closeRequest()" [p-height]="100" p-title="fechar conta">
       </po-widget>
     </div>
     <div class="po-row">
-      <po-widget class="po-sm-6" [p-height]="100" p-title="editar pedido"></po-widget>
+      <po-widget class="po-sm-6 po-mb-2" [p-height]="100" p-title="editar pedido"></po-widget>
       <po-widget (p-click)="customers()" class="po-sm-6" [p-height]="100" p-title="adicionar cliente">
       </po-widget>
     </div>
-    <po-chart [p-height]="10" [p-series]="series"></po-chart>
+    <po-chart class="po-md-12" [p-height]="10" [p-series]="series"></po-chart>
   </po-page-default>
 </div>

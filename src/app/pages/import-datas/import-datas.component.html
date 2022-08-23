@@ -1,6 +1,7 @@
-<po-page-default
-  p-title="Importando dados">
-
+<po-page-default>
+  <po-breadcrumb [p-items]="breadcrumb">
+  </po-breadcrumb>
+  <div class="po-font-subtitle po-m-2">Importar dados</div>
   <div id="clientes">
     <label for="file">Importar Clientes</label>
     <input id="file" type="file" accept=".json" (change)="uploadCliente($event)" name="" id="">

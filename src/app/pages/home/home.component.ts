@@ -12,9 +12,7 @@ import { PoStorageService } from '@po-ui/ng-storage';
 export class HomeComponent implements OnInit {
 
   readonly menus: Array<PoMenuItem> = [
-    {
-      label: 'Home'
-    },
+    
     {
       label: 'Adicionar Produto',
       action: this.addProdutos.bind(this)
