@@ -9,19 +9,16 @@ import { StorageService } from 'src/app/services/storage.service';
   templateUrl: './import-datas.component.html',
   styleUrls: ['./import-datas.component.scss']
 })
-export class ImportDatasComponent implements OnInit {
+export class ImportDatasComponent {
   id = '';
   breadcrumb: Array<PoBreadcrumbItem> = [
-    { label: 'Home', action: this.backHome.bind(this) }, { label: 'Adicionar Cliente' }
+    { label: 'Home', action: this.backHome.bind(this) }, { label: 'Importar Data' }
   ];
   constructor(
     private storage: PoStorageService,
     private notify: PoNotificationService,
     private router: Router
   ) { }
-
-  ngOnInit(): void {
-  }
 
   uploadCliente(event: any) {
     // load file json and parse to json
@@ -52,8 +49,8 @@ export class ImportDatasComponent implements OnInit {
     }
     reader.readAsText(file);
   }
-  
-  backHome() {
-    this.router.navigate(['home', this.id])
+
+  backHome(route: any) {
+    this.router.navigate([`/home/${this.id}`]);
   }
 }

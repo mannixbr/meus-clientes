@@ -47,6 +47,8 @@ export class HomeComponent implements OnInit {
       data: 400,
     },
   ];
+
+  seriesPedidos!: Array<PoChartSerie>;
   id: string = "";
 
   nome: string = "";
@@ -54,11 +56,11 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private storage: PoStorageService,
-    private service: ServiceService,
+    // private service: ServiceService,
   ) { }
 
   ngOnInit(): void {
-    this.service.setUp();
+    // this.service.setUp();
 
     this.storage.get("activated").then((item) => {
       this.nome = item;
@@ -68,32 +70,32 @@ export class HomeComponent implements OnInit {
   }
 
   support() {
-    let target =
+      let target =
       `https://wa.me/5511912624039?text=Olá, estou entrando em contato pelo aplicativo Meus Clientes, preciso falar sobre algo.`;
-    window.open(target, "_system");
-  }
+      window.open(target, "_system");
+    }
 
   exportData(value: any) {
-    this.router.navigate([`/export/${this.id}`]);
-  }
+      this.router.navigate([`/export/${this.id}`]);
+    }
 
   importData(value: any) {
-    this.router.navigate([`/importDatas/${this.id}`]);
-  }
+      this.router.navigate([`/importDatas/${this.id}`]);
+    }
 
   navegate(rota: any) {
-    this.router.navigate([`/${rota}`]);
-  }
+      this.router.navigate([`/${rota}`]);
+    }
 
   closeRequest() {
-    this.router.navigate([`/fecharPedido/${this.id}`]);
-  }
+      this.router.navigate([`/fecharPedido/${this.id}`]);
+    }
 
   addProdutos(rota: any) {
-    this.router.navigate([`/addProdutos/${this.id}`]);
-  }
+      this.router.navigate([`/addProdutos/${this.id}`]);
+    }
 
   customers() {
-    this.router.navigate([`/clientes/${this.id}`]);
-  }
+      this.router.navigate([`/clientes/${this.id}`]);
+    }
 }

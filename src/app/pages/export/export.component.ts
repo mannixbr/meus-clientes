@@ -14,7 +14,7 @@ export class ExportComponent implements OnInit {
   id: any = '';
 
   breadcrumb: Array<PoBreadcrumbItem> = [
-    { label: 'Home', action: this.backHome.bind(this) }, { label: 'Exportar produtos' }
+    { label: 'Home', action: this.backHome.bind(this) }, { label: 'Exportar Data' }
   ];
 
   constructor(
@@ -42,7 +42,7 @@ export class ExportComponent implements OnInit {
       link.setAttribute('download', 'clientes.json');
       link.click();
     })
-      
+
   }
 
   downloadProducts() {
@@ -55,12 +55,10 @@ export class ExportComponent implements OnInit {
       link.setAttribute('download', 'produtos.json');
       link.click();
     })
-      
+
   }
 
-  
-
   backHome() {
-    this.router.navigate(['home', this.id]);
+    this.router.navigate([`/home/${this.id}`]);
   }
 }

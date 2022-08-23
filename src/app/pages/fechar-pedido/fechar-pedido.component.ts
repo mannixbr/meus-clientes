@@ -18,7 +18,6 @@ export class FecharPedidoComponent implements OnInit {
   ]
   airfareDetail: PoTableDetail = {
     columns: [
-      { property: 'id' },
       { property: 'nome' },
       { property: 'valor' },
       { property: 'quantidade' },
@@ -27,7 +26,6 @@ export class FecharPedidoComponent implements OnInit {
     typeHeader: 'top'
   };
   columnsPedidos: Array<PoTableColumn> = [
-    { property: 'id', visible: false },
     { property: 'nome' },
     {
       property: 'produtos',
@@ -55,7 +53,6 @@ export class FecharPedidoComponent implements OnInit {
 
   columns: PoTableColumn[] = [
     {
-      property: 'id',
       visible: false
     },
     {
@@ -148,11 +145,6 @@ export class FecharPedidoComponent implements OnInit {
 
   fecharPedido(item: any) {
 
-    let dates = {
-      horario: this.novaHora(),
-      data: this.novaData()
-    }
-
     this.storage.getItemByField('clientes', 'id', item.id).then((res) => {
 
       this.storage.removeItemFromArray('clientes', 'id', res.id).then((value) => {
@@ -167,7 +159,7 @@ export class FecharPedidoComponent implements OnInit {
           pedidos: [],
           valor_total: res.total
         }).then(() => {
-          this.notify.success('Conta fechada com sucesso');
+          this.notify.success('Conta fechada com sucesso')
           this.getClientes();
         })
       })

@@ -13,7 +13,7 @@ export class ServiceService {
     private storage: PoStorageService,
     private notify: PoNotificationService,
     private router: Router,
-  ) {}
+  ) { }
 
   setUp() {
     this.fingerPrintServiceIsAvaliable();
@@ -28,10 +28,13 @@ export class ServiceService {
           if (fingerprint !== null && fingerprint === true) {
             // chamada do fingerprint
             this.fingerPrintServiceShow();
+            return;
           }
 
         }).catch(() => {
           this.notify.error("Não foi possível obter o fingerprint do usuário");
+          this.storage.set("fingerprint", false);
+
         });
       } else {
         this.storage.set("fingerprint", false);
@@ -39,7 +42,6 @@ export class ServiceService {
       }
     }).catch((err) => {
       this.storage.set("fingerprint", false);
-      this.notify.error("Erro ao verificar impressão digital");
     });
   }
 
@@ -52,12 +54,12 @@ export class ServiceService {
         "Para autenticar sua impressão digital, você precisa colocar seu dedo no sensor de impressão digital.",
       disableBackup: true,
     }).then((result: RTCDtlsFingerprint) => {
-      if(result !== 'biometric_success'){
+      if (result !== 'biometric_success') {
         this.notify.error('Usuario errado.')
         this.storage.set("fingerprint", false);
         this.router.navigate([`/estabelecimentos`])
         return
-      }else{
+      } else {
         this.notify.success('Autenticação realizada com sucesso.')
         this.storage.set("fingerprint", true);
       }

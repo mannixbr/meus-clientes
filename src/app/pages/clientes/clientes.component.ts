@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { PoBreadcrumb, PoBreadcrumbItem, PoInfoOrientation, PoNotificationService, PoTableAction, PoTableColumn, PoTableComponent } from '@po-ui/ng-components';
+import { PoBreadcrumbItem, PoNotificationService, PoTableAction, PoTableColumn, PoTableComponent } from '@po-ui/ng-components';
 import { PoStorageService } from '@po-ui/ng-storage';
 
 @Component({
@@ -19,9 +19,6 @@ export class ClientesComponent implements OnInit {
   clientes: Array<any> = []
 
   columns: PoTableColumn[] = [
-    {
-      property: 'id'
-    },
     {
       property: 'nome'
     },
@@ -93,7 +90,7 @@ export class ClientesComponent implements OnInit {
       this.notify.success('Cliente removido com sucesso!');
     })
   }
-  
+
   discount() { }
   validateDiscount() { }
 

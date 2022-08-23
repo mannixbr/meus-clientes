@@ -22,7 +22,6 @@ export class EscolhaClienteComponent implements OnInit {
   clientes: any[] = [];
 
   columns: Array<PoTableColumn> = [
-    { property: 'id' },
     { property: 'nome' },
     { property: 'whatsapp', label: 'WhatsApp' },
     { property: 'estabelecimento', label: 'Estabelecimento' }

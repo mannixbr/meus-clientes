@@ -12,7 +12,7 @@ import { PoStorageService } from '@po-ui/ng-storage';
 export class AdicionarProdutosComponent implements OnInit {
 
   breadcrumb: Array<PoBreadcrumbItem> = [
-    { label: 'Home', action: this.backHome.bind(this) }, { label: 'Adicionar Cliente' }
+    { label: 'Home', action: this.backHome.bind(this) }, { label: 'Adicionar Produto' }
   ];
   fields: Array<PoDynamicField> = [
     {
@@ -69,6 +69,6 @@ export class AdicionarProdutosComponent implements OnInit {
   }
 
   backHome() {
-    this.router.navigate(['home', this.id])
+    this.router.navigate([`/home/${this.id}`]);
   }
 }
