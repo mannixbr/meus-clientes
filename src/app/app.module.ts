@@ -1,3 +1,4 @@
+import { HomeModule } from './pages/home/home.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -52,7 +53,8 @@ import { EstabecimentosModule } from './pages/estabecimentos/estabecimentos.modu
     PoStorageModule.forRoot(),
     FormsModule,
     HttpClientModule,
-    EstabecimentosModule
+    EstabecimentosModule,
+    HomeModule
   ],
   exports:[
     AddClienteComponent,

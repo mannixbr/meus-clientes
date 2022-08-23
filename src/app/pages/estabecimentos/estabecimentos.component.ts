@@ -20,9 +20,7 @@ export class EstabecimentosComponent implements OnInit {
   constructor(
     private storage: PoStorageService,
     private router: Router,
-    private androidPermissions: AndroidPermissions,
-    //private finger: FingerprintAIO,
-    private notify: PoNotificationService,
+    private androidPermissions: AndroidPermissions
   ) { }
 
   ngOnInit(): void {
@@ -41,23 +39,6 @@ export class EstabecimentosComponent implements OnInit {
 
     }).catch((err) => { })
 
-  /*   this.finger.show({
-      title: 'Autenticação',
-      subtitle: 'Para sua seguranca e para não ser permitido acesso indevido',
-      cancelButtonTitle: 'Cancelar'
-    })
-      .then((result: RTCDtlsFingerprint) => {
-        if (result !== 'biometric_success') {
-          this.notify.error('Usuario errado.')
-          this.router.navigate([`/estabelecimentos`])
-          return
-        }
-        this.notify.success('Autenticação realizada com sucesso.')
-      })
-      .catch((error: any) => {
-        this.notify.error('Este aparelho nao suporta')
-      });
- */
     this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE).then(
       result => { },
       err => {

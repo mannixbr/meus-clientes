@@ -1,6 +1,7 @@
+import { FingerprintAIO } from '@awesome-cordova-plugins/fingerprint-aio/ngx';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PoChartSerie, PoMenuItem } from '@po-ui/ng-components';
+import { PoChartSerie, PoMenuItem, PoNotificationService } from '@po-ui/ng-components';
 import { PoStorageService } from '@po-ui/ng-storage';
 
 @Component({
@@ -53,10 +54,30 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private storage: PoStorageService,
+    private finger: FingerprintAIO,
+    private notify: PoNotificationService,
   ) { }
 
   ngOnInit(): void {
 
+    this.finger.show({
+      title: 'Autenticação',
+      subtitle: 'Para sua seguranca e para não ser permitido acesso indevido',
+      cancelButtonTitle: 'Cancelar'
+    })
+      .then((result: RTCDtlsFingerprint) => {
+        if (result !== 'biometric_success') {
+          this.notify.error('Usuario errado.')
+          this.router.navigate([`/estabelecimentos`])
+          return
+        }
+        this.notify.success('Autenticação realizada com sucesso.')
+      })
+      .catch((error: any) => {
+        this.notify.error('Este aparelho nao suporta')
+      });
+
+      
     this.storage.get("activated").then((item) => {
       this.nome = item;
 
