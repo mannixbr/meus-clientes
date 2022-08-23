@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PoStorageService } from '@po-ui/ng-storage';
 import { PoNotificationService } from '@po-ui/ng-components';
-import { FingerprintAIO } from '@awesome-cordova-plugins/fingerprint-aio/ngx';
-import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 
 @Component({
   selector: 'app-estabecimentos',
@@ -20,7 +18,6 @@ export class EstabecimentosComponent implements OnInit {
   constructor(
     private storage: PoStorageService,
     private router: Router,
-    private androidPermissions: AndroidPermissions,
     private poNotify: PoNotificationService
   ) { }
 
@@ -39,18 +36,6 @@ export class EstabecimentosComponent implements OnInit {
       }
 
     }).catch((err) => { })
-
-    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE).then(
-      result => { },
-      err => {
-        this.androidPermissions.requestPermissions(
-          [
-            this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
-            this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE,
-            this.androidPermissions.PERMISSION.INTERNET
-          ]
-        )
-      }).catch((err) => { });
 
   }
 

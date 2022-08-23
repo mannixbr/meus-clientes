@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PoChartSerie, PoMenuItem, PoNotificationService } from '@po-ui/ng-components';
 import { PoStorageService } from '@po-ui/ng-storage';
+import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 
 @Component({
   selector: 'app-home',
@@ -54,6 +55,8 @@ export class HomeComponent implements OnInit {
     private storage: PoStorageService,
     private finger: FingerprintAIO,
     private notify: PoNotificationService,
+    private androidPermissions: AndroidPermissions
+
   ) { }
 
   ngOnInit(): void {
@@ -75,7 +78,21 @@ export class HomeComponent implements OnInit {
         this.notify.error('Este aparelho nao suporta')
       });
 
-      
+
+    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE).then(
+      result => { },
+      err => {
+        this.androidPermissions.requestPermissions(
+          [
+            this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
+            this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE,
+            this.androidPermissions.PERMISSION.INTERNET
+          ]
+        )
+      }).catch((err) => { });
+
+
+
     this.storage.get("activated").then((item) => {
       this.nome = item;
 
