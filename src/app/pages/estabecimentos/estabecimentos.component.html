@@ -1,19 +1,18 @@
 <po-page-default>
   <po-loading-overlay *ngIf="loading" [p-screen-lock]="true" p-text="Carregando">
   </po-loading-overlay>
-  <div *ngIf="!hasEstabelecimentos">
-    <h1>Seja Bem vindo</h1>
-    <div>
-      <po-input [(ngModel)]="e_name" class="po-sm-12" p-placeholder="Digite o nome do seu estabelecimento">
-      </po-input>
-      <po-button (p-click)="saveE()" class="po-sm-12" p-size="xl" p-label="Salvar Estabelecimento"></po-button>
-    </div>
-  </div>
 
   <main class="po-row" *ngIf="hasEstabelecimentos">
     <po-widget class="po-sm-6 po-mb-2" *ngFor="let item of e_todo" p-title="{{item.nome}}" [p-height]="100"
       p-primary-label="user este" (p-primary-action)="usarE(item.id)"></po-widget>
   </main>
-  <po-button *ngIf="hasEstabelecimentos" p-label="Novo Estabelecimento" (p-click)="hasEstabelecimentos = false"
+
+  <main class="" *ngIf="!hasEstabelecimentos">
+    <h1 class="warning">
+      Nenhum estabelecimento cadastrado
+    </h1>
+  </main>
+
+  <po-button [routerLink]="['/welcome']" p-label="Novo Estabelecimento"
     class="po-sm-12"></po-button>
 </po-page-default>

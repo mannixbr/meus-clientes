@@ -5,7 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/welcome/welcome-routing.module').then(m => m.WelcomeRoutingModule)
+    loadChildren: () => import('./pages/estabecimentos/estabecimentos.module').then(m => m.EstabecimentosModule)
+
   },
   {
     path: 'estabelecimentos',
@@ -42,6 +43,9 @@ const routes: Routes = [
     loadChildren: () => import('./pages/import-datas/import-datas.module').then(m => m.ImportDatasModule)
   },
   {
+    path: 'welcome',
+    loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule)
+    },
     path: '**',
     component:HomeComponent
   }

@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="capacitor-cordova-android-plugins/src/main/res/layout/biometric_activity.xml" value="0.33229166666666665" />
       </map>
     </option>
   </component>

@@ -20,9 +20,10 @@ export class WelcomeComponent implements OnInit {
   ngOnInit(): void {
     this.storage.exists('estabelecimento').then((res) => {
       if (res == true) {
-        this.router.navigate(['/estabelecimentos'])
+        console.log('existe');
+        //this.router.navigate(['/estabelecimentos'])
       }
-    });
+    }).catch(err => {})
   }
 
   saveE() {
