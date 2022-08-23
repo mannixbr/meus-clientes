@@ -45,9 +45,10 @@ const routes: Routes = [
   {
     path: 'welcome',
     loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule)
-    },
+  },
+  {
     path: '**',
-    component:HomeComponent
+    component: HomeComponent
   }
 ];
 
