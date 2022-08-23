@@ -8,7 +8,7 @@ import { PoStorageService } from '@po-ui/ng-storage';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
   constructor(
     private storage: PoStorageService,
   ) { }
@@ -16,6 +16,6 @@ export class AppComponent {
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface, @angular-eslint/no-empty-lifecycle-method
   ngOnDestroy(): void {
-    this.storage.remove('authenticated');
+    this.storage.remove('fingerprint');
   }
 }

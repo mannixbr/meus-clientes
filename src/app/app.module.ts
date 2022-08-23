@@ -63,7 +63,7 @@ import { EstabecimentosModule } from './pages/estabecimentos/estabecimentos.modu
   ],
   providers: [
     FingerprintAIO,
-    AndroidPermissions
+    AndroidPermissions,
   ],
   bootstrap: [AppComponent]
 })

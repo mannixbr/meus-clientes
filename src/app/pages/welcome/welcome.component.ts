@@ -18,6 +18,8 @@ export class WelcomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.storage.set('fingerprint', false).then(res => console.log(res)).catch(err => console.log(err))
+    
     this.storage.exists('estabelecimento').then((res) => {
       if (res == true) {
         console.log('existe');
@@ -32,7 +34,7 @@ export class WelcomeComponent implements OnInit {
       "nome": this.e_name
     })
     console.log(this.e_todo);
-    
+
     this.storage.set('estabelecimento', this.e_todo).then((res) => {
       this.router.navigate(['/home'])
     })

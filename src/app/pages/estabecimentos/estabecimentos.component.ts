@@ -22,6 +22,7 @@ export class EstabecimentosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.storage.set('fingerprint', false).then(res => console.log(res)).catch(err => console.log(err))
 
     this.storage.exists('estabelecimento').then((res) => {
       if (res == true) {
@@ -40,7 +41,7 @@ export class EstabecimentosComponent implements OnInit {
   }
 
   saveE() {
-    if (this.e_name != '') {  
+    if (this.e_name != '') {
       this.e_todo.push({
         "id": Math.floor(Date.now() * Math.random()).toString(36),
         "nome": this.e_name
@@ -50,10 +51,10 @@ export class EstabecimentosComponent implements OnInit {
           this.storage.get('estabelecimento').then((item) => {
             this.e_todo = item;
             this.loading = false;
-            
+
             for (let index = 0; index < item.length; index++) {
               if (this.e_todo[index].id === item[index].id) {
-                this.usarE(item[index].id); 
+                this.usarE(item[index].id);
               }
             }
           })
