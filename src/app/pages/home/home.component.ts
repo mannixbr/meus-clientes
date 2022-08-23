@@ -13,9 +13,7 @@ import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions
 export class HomeComponent implements OnInit {
 
   readonly menus: Array<PoMenuItem> = [
-    {
-      label: 'Home'
-    },
+    
     {
       label: 'Adicionar Produto',
       action: this.addProdutos.bind(this)

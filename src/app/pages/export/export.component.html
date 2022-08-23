@@ -1,8 +1,11 @@
-<po-page-default p-title="export dados">
+<po-page-default>
+  <po-breadcrumb [p-items]="breadcrumb">
+  </po-breadcrumb>
+  <div class="po-font-subtitle po-m-2">Exportar dados</div>
   <div class="po-sm-12">
-    <po-button class="po-sm-12" p-label="exportar clientes" (p-click)="downloadCustomers()"></po-button>
-    <po-button class="po-sm-12" p-label="exportar produtos" (p-click)="downloadProducts()"></po-button>
-    <po-button class="po-sm-12" p-label="analytics dados"></po-button>
-    <po-button class="po-sm-12" p-label="configuracao do app"></po-button>
+    <po-button class="po-sm-12 po-mb-2" p-label="exportar clientes" (p-click)="downloadCustomers()"></po-button>
+    <po-button class="po-sm-12 po-mb-2" p-label="exportar produtos" (p-click)="downloadProducts()"></po-button>
+    <po-button class="po-sm-12 po-mb-2" p-label="analytics dados"></po-button>
+    <po-button class="po-sm-12 po-mb-2" p-label="configuracao do app"></po-button>
   </div>
 </po-page-default>

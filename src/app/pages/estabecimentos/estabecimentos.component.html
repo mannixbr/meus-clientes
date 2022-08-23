@@ -3,7 +3,7 @@
   </po-loading-overlay>
 
   <main class="po-row" *ngIf="hasEstabelecimentos">
-    <po-widget class="po-sm-6" *ngFor="let item of e_todo" p-title="{{item.nome}}" [p-height]="100"
+    <po-widget class="po-sm-6 po-mb-2" *ngFor="let item of e_todo" p-title="{{item.nome}}" [p-height]="100"
       p-primary-label="user este" (p-primary-action)="usarE(item.id)"></po-widget>
   </main>
 

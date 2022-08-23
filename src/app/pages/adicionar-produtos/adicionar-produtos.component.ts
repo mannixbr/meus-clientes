@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PoNotificationService } from '@po-ui/ng-components';
+import { PoBreadcrumbItem, PoNotificationService } from '@po-ui/ng-components';
 import { PoDynamicField } from '@po-ui/ng-components/lib/components/po-dynamic/po-dynamic-field.interface';
 import { PoStorageService } from '@po-ui/ng-storage';
 
@@ -11,6 +11,9 @@ import { PoStorageService } from '@po-ui/ng-storage';
 })
 export class AdicionarProdutosComponent implements OnInit {
 
+  breadcrumb: Array<PoBreadcrumbItem> = [
+    { label: 'Home', action: this.backHome.bind(this) }, { label: 'Adicionar Cliente' }
+  ];
   fields: Array<PoDynamicField> = [
     {
       property: 'nome'
@@ -63,5 +66,9 @@ export class AdicionarProdutosComponent implements OnInit {
   // generate id
   generateId() {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  }
+
+  backHome() {
+    this.router.navigate(['home', this.id])
   }
 }
