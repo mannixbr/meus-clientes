@@ -1,12 +1,17 @@
-<po-dynamic-form
-#dynamicForm
-[p-fields]="fields"
-></po-dynamic-form>
-<div class="po-row">
-    <po-button
-      class="po-md-3"
-      p-label="Save"
-      (p-click)="saveProduto(dynamicForm.form.value)"
-    >
-    </po-button>
-  </div>
+<po-page-default>
+  <po-breadcrumb [p-items]="breadcrumb">
+  </po-breadcrumb>
+  <div class="po-font-subtitle po-m-2">Adicionar produtos</div>
+  <po-dynamic-form
+  #dynamicForm
+  [p-fields]="fields"
+  ></po-dynamic-form>
+  <div class="po-row">
+      <po-button
+        class="po-md-3"
+        p-label="Save"
+        (p-click)="saveProduto(dynamicForm.form.value)"
+      >
+      </po-button>
+    </div>
+</po-page-default>

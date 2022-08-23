@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PoBreadcrumbItem } from '@po-ui/ng-components';
 import { PoStorageService } from '@po-ui/ng-storage';
 
 @Component({
@@ -10,8 +11,11 @@ import { PoStorageService } from '@po-ui/ng-storage';
 })
 export class ExportComponent implements OnInit {
 
-  id: any = ''
+  id: any = '';
 
+  breadcrumb: Array<PoBreadcrumbItem> = [
+    { label: 'Home', action: this.backHome.bind(this) }, { label: 'Exportar produtos' }
+  ];
 
   constructor(
     private router: Router,
@@ -54,4 +58,9 @@ export class ExportComponent implements OnInit {
       
   }
 
+  
+
+  backHome() {
+    this.router.navigate(['home', this.id]);
+  }
 }

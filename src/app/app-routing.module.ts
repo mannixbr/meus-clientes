@@ -1,3 +1,4 @@
+import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'importDatas',
     loadChildren: () => import('./pages/import-datas/import-datas.module').then(m => m.ImportDatasModule)
+  },
+  {
+    path: '**',
+    component:HomeComponent
   }
 ];
 
