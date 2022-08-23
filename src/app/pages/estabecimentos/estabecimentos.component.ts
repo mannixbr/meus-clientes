@@ -20,7 +20,6 @@ export class EstabecimentosComponent implements OnInit {
   constructor(
     private storage: PoStorageService,
     private router: Router,
-    private androidPermissions: AndroidPermissions
   ) { }
 
   ngOnInit(): void {
@@ -38,18 +37,6 @@ export class EstabecimentosComponent implements OnInit {
       }
 
     }).catch((err) => { })
-
-    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE).then(
-      result => { },
-      err => {
-        this.androidPermissions.requestPermissions(
-          [
-            this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
-            this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE,
-            this.androidPermissions.PERMISSION.INTERNET
-          ]
-        )
-      }).catch((err) => { });
 
   }
 
