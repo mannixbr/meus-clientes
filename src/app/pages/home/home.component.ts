@@ -105,7 +105,7 @@ export class HomeComponent implements OnInit {
   }
 
   support() {
-    let target = ` https://wa.me/5511912624039?text=Olá, estou entrando em contato pelo aplicativo Meus Clientes, preciso falar sobre algo.`
+    let target = `https://wa.me/5511912624039?text=Olá, estou entrando em contato pelo aplicativo Meus Clientes, preciso falar sobre algo.`
     window.open(target, '_system')
   }
 
