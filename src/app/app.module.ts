@@ -1,5 +1,3 @@
-import { HomeModule } from './pages/home/home.module';
-import { EstabecimentosModule } from './pages/estabecimentos/estabecimentos.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -26,6 +24,7 @@ import { ExportComponent } from './pages/export/export.component';
 import { ImportDatasComponent } from './pages/import-datas/import-datas.component';
 import { FingerprintAIO } from '@awesome-cordova-plugins/fingerprint-aio/ngx';
 import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
+import { EstabecimentosModule } from './pages/estabecimentos/estabecimentos.module';
 
 @NgModule({
   declarations: [
@@ -53,13 +52,12 @@ import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions
     PoStorageModule.forRoot(),
     FormsModule,
     HttpClientModule,
-    HomeModule,
     EstabecimentosModule
   ],
   exports:[
     AddClienteComponent,
-    EditClienteComponent
-
+    EditClienteComponent,
+    EscolhaClienteComponent
   ],
   providers: [
     FingerprintAIO,

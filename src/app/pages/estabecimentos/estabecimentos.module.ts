@@ -9,8 +9,6 @@ import { EstabecimentosRoutingModule } from './estabecimentos-routing.module';
   imports: [
     CommonModule,
     EstabecimentosRoutingModule
-  ],
-  providers: [
   ]
 })
 export class EstabecimentosModule { }
