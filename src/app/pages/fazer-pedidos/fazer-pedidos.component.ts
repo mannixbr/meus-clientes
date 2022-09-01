@@ -44,7 +44,6 @@ export class FazerPedidosComponent implements OnInit {
   cliente_id: any = '';
   value_total: number = 1;
 
-
   constructor(
     private router: Router,
     private poStorage: PoStorageService,
@@ -100,7 +99,7 @@ export class FazerPedidosComponent implements OnInit {
         let new_prod = res.pedidos.concat(this.itensCart);
         this.id = Math.floor(Date.now() * Math.random()).toString(36)
 
-        this.poStorage.appendItemToArray('clientes', {
+        let c = {
           id: this.id,
           nome: res.nome,
           whatsapp: res.whatsapp,
@@ -109,7 +108,12 @@ export class FazerPedidosComponent implements OnInit {
           dividas: "regularizado",
           pedidos: new_prod,
           valor_total: this.calcularTotalPedidos(new_prod)
-        }).then(() => {
+        }
+
+        this.poStorage.appendItemToArray('clientes', c).then(() => {
+          console.log('pedido salvo');
+          console.log(c);
+
           this.notify.success('Pedido realizado com sucesso!');
           this.backHome();
         })

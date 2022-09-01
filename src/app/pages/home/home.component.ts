@@ -52,15 +52,16 @@ export class HomeComponent implements OnInit {
   id: string = "";
 
   nome: string = "";
+  nomes?: string;
 
   constructor(
     private router: Router,
     private storage: PoStorageService,
-    // private service: ServiceService,
+    //private service: ServiceService,
   ) { }
 
   ngOnInit(): void {
-    // this.service.setUp();
+    //this.service.setUp();
 
     this.storage.get("activated").then((item) => {
       this.nome = item;

@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
   providedIn: "root",
 })
 export class ServiceService {
+
   constructor(
     private finger: FingerprintAIO,
     private storage: PoStorageService,
@@ -20,11 +21,7 @@ export class ServiceService {
   }
 
   fingerPrintServiceIsAvaliable() {
-    this.finger.isAvailable().then((result) => {
-      if (result.isAvailable) {
         this.storage.get("fingerprint").then((fingerprint) => {
-          console.log(fingerprint);
-
           if (fingerprint !== null && fingerprint === true) {
             // chamada do fingerprint
             this.fingerPrintServiceShow();
@@ -34,15 +31,7 @@ export class ServiceService {
         }).catch(() => {
           this.notify.error("Não foi possível obter o fingerprint do usuário");
           this.storage.set("fingerprint", false);
-
         });
-      } else {
-        this.storage.set("fingerprint", false);
-        this.notify.warning("Impressão digital não disponível");
-      }
-    }).catch((err) => {
-      this.storage.set("fingerprint", false);
-    });
   }
 
   fingerPrintServiceShow() {

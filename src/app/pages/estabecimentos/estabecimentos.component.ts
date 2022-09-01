@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PoStorageService } from '@po-ui/ng-storage';
@@ -18,12 +19,23 @@ export class EstabecimentosComponent implements OnInit {
   constructor(
     private storage: PoStorageService,
     private router: Router,
-    private poNotify: PoNotificationService
+    private poNotify: PoNotificationService,
+    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
     this.storage.set('fingerprint', false).then(res => console.log(res)).catch(err => console.log(err))
 
+    this.http.get('https://localhost:7272/api/Estabelecimentos').subscribe((res: any) => {
+      this.e_todo = res//res.items;
+          this.hasEstabelecimentos = true;
+          this.loading = false;
+          console.log(this.e_todo);
+
+    })
+
+
+/*
     this.storage.exists('estabelecimento').then((res) => {
       if (res == true) {
         this.storage.get('estabelecimento').then((item) => {
@@ -36,7 +48,7 @@ export class EstabecimentosComponent implements OnInit {
         this.loading = false;
       }
 
-    }).catch((err) => { })
+    }).catch((err) => { }) */
 
   }
 
